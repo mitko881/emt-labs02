@@ -1,4 +1,10 @@
 package mk.finki.ukim.mk.emtlabs02.model;
 
 public enum Category {
+    ROOM,
+    HOUSE,
+    FLAT,
+    APARTMENT,
+    HOTEL,
+    MOTEL
 }
