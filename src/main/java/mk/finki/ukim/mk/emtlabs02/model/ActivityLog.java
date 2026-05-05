@@ -26,4 +26,5 @@ public class ActivityLog {
 
     @Column(nullable = false)
     private String eventType;
+
 }

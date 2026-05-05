@@ -1,5 +1,6 @@
 package mk.finki.ukim.mk.emtlabs02.controller;
-
+import mk.finki.ukim.mk.emtlabs02.dto.PopularAccommodationDto;
+import mk.finki.ukim.mk.emtlabs02.dto.PopularHostDto;
 import mk.finki.ukim.mk.emtlabs02.dto.AccommodationCreateDto;
 import mk.finki.ukim.mk.emtlabs02.dto.AccommodationFilterDto;
 import mk.finki.ukim.mk.emtlabs02.dto.AccommodationUpdateDto;
@@ -48,7 +49,15 @@ public class AccommodationController {
     public ResponseEntity<Accommodation> create(@Valid @RequestBody AccommodationCreateDto dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(accommodationService.create(dto));
     }
+    @GetMapping("/popular/accommodations")
+    public ResponseEntity<List<PopularAccommodationDto>> getMostPopularAccommodations() {
+        return ResponseEntity.ok(accommodationService.getMostPopularAccommodations());
+    }
 
+    @GetMapping("/popular/hosts")
+    public ResponseEntity<List<PopularHostDto>> getMostPopularHosts() {
+        return ResponseEntity.ok(accommodationService.getMostPopularHosts());
+    }
     @PutMapping("/{id}")
     public ResponseEntity<Accommodation> update(@PathVariable Long id,
                                                 @Valid @RequestBody AccommodationUpdateDto dto) {

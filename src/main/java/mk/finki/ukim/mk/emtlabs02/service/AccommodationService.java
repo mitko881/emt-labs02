@@ -1,5 +1,6 @@
 package mk.finki.ukim.mk.emtlabs02.service;
-
+import mk.finki.ukim.mk.emtlabs02.dto.PopularAccommodationDto;
+import mk.finki.ukim.mk.emtlabs02.dto.PopularHostDto;
 import mk.finki.ukim.mk.emtlabs02.dto.AccommodationCreateDto;
 import mk.finki.ukim.mk.emtlabs02.dto.AccommodationFilterDto;
 import mk.finki.ukim.mk.emtlabs02.dto.AccommodationUpdateDto;
@@ -21,6 +22,7 @@ public interface AccommodationService {
     Page<Accommodation> search(AccommodationFilterDto filterDto, int page, int size, String sortBy, String direction);
 
     List<AccommodationShortView> findAllShortProjection();
-
+    List<PopularAccommodationDto> getMostPopularAccommodations();
+    List<PopularHostDto> getMostPopularHosts();
     List<AccommodationDetailsView> findByCategoryProjection(String category);
 }

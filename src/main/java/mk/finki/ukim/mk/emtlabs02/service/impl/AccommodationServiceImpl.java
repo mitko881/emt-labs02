@@ -1,5 +1,7 @@
 package mk.finki.ukim.mk.emtlabs02.service.impl;
-
+import mk.finki.ukim.mk.emtlabs02.dto.PopularAccommodationDto;
+import mk.finki.ukim.mk.emtlabs02.dto.PopularHostDto;
+import mk.finki.ukim.mk.emtlabs02.repository.ActivityLogRepository;
 import lombok.RequiredArgsConstructor;
 import mk.finki.ukim.mk.emtlabs02.dto.AccommodationCreateDto;
 import mk.finki.ukim.mk.emtlabs02.dto.AccommodationFilterDto;
@@ -30,6 +32,7 @@ public class AccommodationServiceImpl implements AccommodationService {
     private final AccommodationRepository accommodationRepository;
     private final HostRepository hostRepository;
     private final ApplicationEventPublisher applicationEventPublisher;
+    private final ActivityLogRepository activityLogRepository;
 
     @Override
     public List<Accommodation> findAll() {
@@ -130,7 +133,18 @@ public class AccommodationServiceImpl implements AccommodationService {
     }
 
     @Override
+    public List<PopularAccommodationDto> getMostPopularAccommodations() {
+        return null;
+    }
+
+    @Override
+    public List<PopularHostDto> getMostPopularHosts() {
+        return null;
+    }
+
+    @Override
     public List<AccommodationDetailsView> findByCategoryProjection(String category) {
         return accommodationRepository.findByCategory(Category.valueOf(category.toUpperCase()));
     }
+
 }
